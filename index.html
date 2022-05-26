@@ -381,28 +381,22 @@
 <p>This is a post example to query:</p>
 
 <p><code>https://api.moonxbt.com/v1/xxx/post</code></p>
- <p>         {       </p>
- <p>         "id": 6,       </p>
- <p>         "method": "open",       </p>
- <p>         "jsonrpc": "2.0",       </p>
- <p>         "version": "2.0",       </p>
- <p>         "SignatureVersion": "1",       </p>
- <p>         "Signature": "ydmJ64eozTxrDE7uIACcsmbI9xyPPqUscAQ/Qp3i8TE=",       </p>
- <p>         "SignatureMethod": "HmacSHA256",       </p>
- <p>         "AccessKey": "73915b6e-e41d-43ff-ae18-0c29df541b43",       </p>
- <p>         "Timestamp": "2022-05-25T10:20:50",       </p>
- <p>         "params": {       </p>
- <p>            "marginTrade": false       </p>
- <p>            }       </p>
- <p>         }       </p>
 
-<p><code>AccessKey: e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx</code></p>
-
-<p><code>&amp;SignatureMethod:HmacSHA256</code></p>
-
-<p><code>&amp;SignatureVersion:2</code></p>
-
-<p><code>&amp;Timestamp:2020-05-11T15:19:30</code></p>
+<pre>
+{
+    "id": 6,
+    "method": "open",
+    "jsonrpc": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "ydmJ64eozTxrDE7uIACcsmbI9xyPPqUscAQ/Qp3i8TE=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "73915b6e-e41d-43ff-ae18-0c29df541b43",
+    "Timestamp": "2022-05-25T10:20:50",
+    "params": {
+       "marginTrade": false
+       }
+}
+</pre>
 
 
 </span></code></pre></div><h1 id='k-line-endpoints'>K-Line Endpoints</h1>
@@ -410,10 +404,28 @@
 
 <p>This endpoint returns a list of K-lines history data for all public users.</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /v1/kline/POST</code></p>
+<p><strong>HTTP Request</strong>: <code>POST /api/kline</code></p>
 
 <aside class="notice">
-The Request parameters is in the field of "params" in the request body, refering to the part of Signature Method
+    request template:
+<pre>
+{
+    "id": 5,
+    "method": "history",
+    "jsonrpc": "2.0",
+    "version": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "UTNN+M/b+GZHzB1NzV9PrDfWOFGcyuwKi8pKnQJsfUc=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "73915b6e-e41d-43ff-ae18-0c29df541b43",
+    "Timestamp": "2022-05-25T10:20:50",
+    "params": {
+        "symbol": "btcusd",
+        "kType": 5,
+        "size": 200
+    }
+}
+    </pre>
 </aside>
 
 <p><strong>Reqeust Parameters</strong>：</p>
@@ -451,22 +463,23 @@ The Request parameters is in the field of "params" in the request body, refering
 </tbody></table>
 
 <p><strong>Response Content</strong>:</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">9313.2881</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">9316.2478</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">9260.2442</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">9390.1536</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"vol"</span><span class="p">:</span><span class="w"> </span><span class="mf">4190.569625</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1589414400</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-14 11:07:46"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+<pre>
+{
+    "code": 0,
+    "data": [
+        {
+            "open": 9313.2881,
+            "close": 9316.2478,
+            "low": 9260.2442,
+            "high": 9390.1536,
+            "vol": 4190.569625,
+            "time": 1589414400
+        }
+    ],
+    "message": "Success",
+    "time": "2020-05-14 11:07:46"
+}
+</pre>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -693,9 +706,33 @@ After that, you can receive the actual K-line data as below:
 
 <p>This endpoint returns a list of historical orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /v1/orders/history/post</code></p>
+<p><strong>HTTP Request</strong>: <code>POST /api/cfd</code></p>
 <aside class="notice">
-    The Request parameters is in the field of "params" in the request body, refering to the part of Signature Method
+request template
+<pre>
+{
+    "id": 5,
+    "method": "historyList",
+    "jsonrpc": "2.0",
+    "version": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "OxlHyEPn42vUKiXuxojNDTnBhllp7m1GalM2vQu/PyU=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "73915b6e-e41d-43ff-ae18-0c29df541b43",
+    "Timestamp": "2022-05-25T10:20:50",
+    "params": {
+     "tradeVO": {
+            "code": "",
+            "direction": "",
+            "deviceType": "",
+            "currencyName": "",
+            "begin": "2020-04-20 18:28:41",
+            "end": "2022-05-20 18:28:41"
+
+        }
+    }
+}
+</pre>
 </aside>
 <p><strong>Reqeust Parameters</strong>：</p>
 
@@ -836,9 +873,34 @@ After that, you can receive the actual K-line data as below:
 
 <p>This endpoint returns a list of holding orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /v1/orders/holding/POST</p>
+<p><strong>HTTP Request</strong>: <code>POST /api/cfd</code></p>
         <aside class="notice">
-            The Request parameters is in the field of "params" in the request body, refering to the part of Signature Method
+            Request template:
+<pre>
+{
+    "id": 5,
+    "method": "holdingList",
+    "jsonrpc": "2.0",
+    "version": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "OxlHyEPn42vUKiXuxojNDTnBhllp7m1GalM2vQu/PyU=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "73915b6e-e41d-43ff-ae18-0c29df541b43",
+    "Timestamp": "2022-05-25T10:20:50",
+    "params": {
+        "tradeVO": {
+            "code": "",
+            "direction": "",
+            "deviceType": "",
+            "currencyName": "",
+            "begin": "2020-04-20 18:28:41",
+            "end": "2022-05-20 18:28:41"
+
+        }
+    }
+
+}
+</pre>
         </aside>
 <p><strong>Reqeust Parameters</strong>：</p>
 
@@ -979,9 +1041,34 @@ After that, you can receive the actual K-line data as below:
 
 <p>This endpoint returns a list of pending orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /v1/orders/pending/POST</code></p>
+<p><strong>HTTP Request</strong>: <code>POST /api/cfd</code></p>
         <aside class="notice">
-            The Request parameters is in the field of "params" in the request body, refering to the part of Signature Method
+            Request template
+<pre>
+{
+    "id": 5,
+    "method": "pendingList",
+    "jsonrpc": "2.0",
+    "version": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "OxlHyEPn42vUKiXuxojNDTnBhllp7m1GalM2vQu/PyU=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "73915b6e-e41d-43ff-ae18-0c29df541b43",
+    "Timestamp": "2022-05-25T10:20:50",
+    "params": {
+    "params": {
+        "tradeVO": {
+            "code": "",
+            "direction": "",
+            "deviceType": "",
+            "currencyName": "",
+            "begin": "2020-04-20 18:28:41",
+            "end": "2022-05-20 18:28:41"
+
+        }
+    }
+}
+</pre>
         </aside>
 <p><strong>Reqeust Parameters</strong>：</p>
 
