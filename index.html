@@ -343,9 +343,6 @@
                     <a href="#spotskline-ticker" class="toc-h2 toc-link" data-title="spotsKline:ticker">spotsKline:ticker</a>
                   </li>
                   <li>
-                    <a href="#spotskline-ticker-2" class="toc-h2 toc-link" data-title="spotsKline:ticker">spotsKline:ticker</a>
-                  </li>
-                  <li>
                     <a href="#spotskline-allticker" class="toc-h2 toc-link" data-title="spotsKline:allTicker">spotsKline:allTicker</a>
                   </li>
                   <li>
@@ -369,7 +366,7 @@
               </ul>
           </li>
           <li>
-            <a href="#k-line-cfd-endpoints" class="toc-h1 toc-link" data-title="K-Line CFD Endpoints">K-Line CFD Endpoints</a>
+            <a href="#k-line-liquid-contract-endpoints" class="toc-h1 toc-link" data-title="K-Line Liquid Contract  Endpoints">K-Line Liquid Contract  Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#cfdkline-history" class="toc-h2 toc-link" data-title="cfdKline:history">cfdKline:history</a>
@@ -378,9 +375,41 @@
           </li>
           <li>
             <a href="#k-line-websocket-streams" class="toc-h1 toc-link" data-title="K-Line WebSocket streams">K-Line WebSocket streams</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#spotskline-meta-2" class="toc-h2 toc-link" data-title="spotsKline:meta">spotsKline:meta</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-spotslist-2" class="toc-h2 toc-link" data-title="spotsKline:spotsList">spotsKline:spotsList</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-ticker-2" class="toc-h2 toc-link" data-title="spotsKline:ticker">spotsKline:ticker</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-allticker-2" class="toc-h2 toc-link" data-title="spotsKline:allTicker">spotsKline:allTicker</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-orderbook-2" class="toc-h2 toc-link" data-title="spotsKline:orderBook">spotsKline:orderBook</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-bars-2" class="toc-h2 toc-link" data-title="spotsKline:bars">spotsKline:bars</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-ticks-2" class="toc-h2 toc-link" data-title="spotsKline:ticks">spotsKline:ticks</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-orderchanges-2" class="toc-h2 toc-link" data-title="spotsKline:orderChanges">spotsKline:orderChanges</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-ordermatches-2" class="toc-h2 toc-link" data-title="spotsKline:orderMatches">spotsKline:orderMatches</a>
+                  </li>
+                  <li>
+                    <a href="#spotskline-ping-2" class="toc-h2 toc-link" data-title="spotsKline:ping">spotsKline:ping</a>
+                  </li>
+              </ul>
           </li>
           <li>
-            <a href="#trading-endpoints" class="toc-h1 toc-link" data-title="Trading Endpoints">Trading Endpoints</a>
+            <a href="#liquid-contract-endpoint" class="toc-h1 toc-link" data-title="Liquid Contract Endpoint">Liquid Contract Endpoint</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#position-history" class="toc-h2 toc-link" data-title="Position History">Position History</a>
@@ -401,7 +430,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='https://v2.api.moonxbt.com'>MoonXBT</a></li>
+            <li><a href='https://www.moonxbt.com'>MoonXBT</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -414,7 +443,7 @@
 <h1 id='general-info'>General Info</h1><h2 id='general-api-information'>General API Information</h2>
 <ul>
 <li>Some endpoints will require an API Key. </li>
-<li>The base endpoint is: <code>https://www.MoonXBT.com</code></li>
+<li>The base endpoint is: <code>https://www.moonxbt.com</code></li>
 <li>All endpoints return either a JSON object or array.</li>
 <li>Data is returned in ascending order. Oldest first, newest last.</li>
 <li>All time and timestamp related fields are in milliseconds.</li>
@@ -427,8 +456,7 @@
 </ul>
 <h2 id='general-information-on-endpoints'>General Information on Endpoints</h2>
 <ul>
-<li>For GET endpoints, parameters must be sent as a query string.</li>
-<li>For POST, PUT, and DELETE endpoints, the parameters may be sent as a query string or in the request body with content type application/x-www-form-urlencoded. You may mix parameters between both the query string and request body if you wish to do so.</li>
+<li>For POST endpoints, the parameters may be sent as a query string or in the request body with content type application/x-www-form-urlencoded. You may mix parameters between both the query string and request body if you wish to do so.</li>
 <li>Parameters may be sent in any order.</li>
 <li>If a parameter sent in both the query string and request body, the query string parameter will be used.</li>
 </ul>
@@ -447,9 +475,8 @@
 <li>Signature Method: The Hash method that is used to sign, it uses HmacSHA256</li>
 <li>Signature Version: The version for the signature protocol, it uses 1</li>
 <li>Timestamp: The UTC time when the request is sent, e.g. 2017-05-11T16:22:06. It is useful to prevent the request to be intercepted by third-party.</li>
-<li>Parameters: Each API Method has a group of parameters, you can refer to detailed document for each of them.</li>
 <li>For POST request, the parameters needn&#39;t be signed and they should be put in request body.</li>
-<li>Signature: The value after signed, it is guarantee the signature is valid and the request is not be tempered.</li>
+<li>Signature: The value after signed, it is guarantee the signature is valid and the request is not be tampered.</li>
 </ul>
 
 <p><strong>Signature Method</strong></p>
@@ -468,12 +495,11 @@
 
 <p><code>&amp;SignatureVersion=10</code></p>
 
-<p><code>&amp;Timestamp=2022-05-28T08:30:50</code>
-** Http Request Body**:
-<code>json
-{ &quot;id&quot;: 3, &quot;method&quot;: &quot;spotsKline:meta&quot;, &quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;params&quot;: { } }
-</code></p>
-<h1 id='k-line-spots-endpoints'>K-Line Spots Endpoints</h1><h2 id='spotskline-meta'>spotsKline:meta</h2>
+<p><code>&amp;Timestamp=2022-05-28T08:30:50</code></p>
+
+<p><strong>Http Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:meta"</span><span class="p">,</span><span class="w"> </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w"> </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='k-line-spots-endpoints'>K-Line Spots Endpoints</h1><h2 id='spotskline-meta'>spotsKline:meta</h2>
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
@@ -509,7 +535,7 @@
 </tr>
 </tbody></table>
 
-<p>HTTP Response Body**:</p>
+<p><strong>HTTP Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"spotsSymbols"</span><span class="p">:[</span><span class="w">
@@ -710,88 +736,6 @@
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>result</td>
-<td>Return result</td>
-<td>array</td>
-</tr>
-<tr>
-<td>id</td>
-<td>The result id</td>
-<td>number</td>
-</tr>
-<tr>
-<td>jsonrpc</td>
-<td>The json-rpc  version</td>
-<td>string</td>
-</tr>
-</tbody></table>
-<h2 id='spotskline-ticker-2'>spotsKline:ticker</h2>
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
-
-<p><strong>HTTP Request Body</strong>:</p>
-<div class="highlight"><pre class="highlight plaintext"><code>{
-    "id": 3,
-    "method": "spotsKline:allTicker",
-    "jsonrpc": "2.0",
-    "params": {
-    }
-}
-</code></pre></div>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Id</td>
-<td>Request id</td>
-<td>Number</td>
-</tr>
-<tr>
-<td>Method</td>
-<td>request func</td>
-<td>String</td>
-</tr>
-<tr>
-<td>jsonrpc</td>
-<td>The json-rpc  version</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><strong>HTTP Response Body</strong>:</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="mf">1.65355782E+12</span><span class="p">,</span><span class="w">
-                </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="mi">0</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TICKER"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"sequenceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"920557"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1652163323227"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -1245,20 +1189,20 @@
 <td>String</td>
 </tr>
 </tbody></table>
-<h1 id='k-line-cfd-endpoints'>K-Line CFD Endpoints</h1><h2 id='cfdkline-history'>cfdKline:history</h2>
+<h1 id='k-line-liquid-contract-endpoints'>K-Line Liquid Contract  Endpoints</h1><h2 id='cfdkline-history'>cfdKline:history</h2>
 <p>This endpoint returns a list of K-lines history data for all public users.</p>
 
 <p><strong>HTTP Request</strong>: <code>POST /api/kline</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"cfdKline:history"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfdKline:history"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"params"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"btcusd"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"kType"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"size"</span><span class="p">:</span><span class="mi">200</span><span class="w">
+        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"kType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1298,19 +1242,25 @@
 
 <p><strong>Response Content</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">9313.2881</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">9316.2478</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">9260.2442</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">9390.1536</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"vol"</span><span class="p">:</span><span class="w"> </span><span class="mf">4190.569625</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1589414400</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-14 11:07:46"</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.84740664</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">16307.12321434</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">31861.83</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">31435.82941177</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653955200</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">31728.01882353</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">31734.24235294</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-31 19:05:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -1340,6 +1290,11 @@
 <td>Return timestamp</td>
 <td>string</td>
 </tr>
+<tr>
+<td>tid</td>
+<td>tracer id usd for open tracing</td>
+<td>string</td>
+</tr>
 </tbody></table>
 
 <p><strong>Kline Entity</strong></p>
@@ -1351,6 +1306,16 @@
 <th>Data Type</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>volume</td>
+<td>Volume</td>
+<td>caculated by base token, for instance USD</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Volume</td>
+<td>caculated by quote token, for instance BTC</td>
+</tr>
 <tr>
 <td>close</td>
 <td>Close price</td>
@@ -1376,95 +1341,122 @@
 <td>Market Timestamp</td>
 <td>long</td>
 </tr>
-<tr>
-<td>vol</td>
-<td>Volume</td>
-<td>number</td>
-</tr>
 </tbody></table>
 <h1 id='k-line-websocket-streams'>K-Line WebSocket streams</h1>
-<p>API Key Permission：No need.</p>
+<p>API Key Permission：Need, and please refer to the Authentication chapter.</p>
 
 <p>This WebSocket returns a list of K-lines history data for all public users.</p>
 
-<p><strong>WebSocket Path</strong>: wss://www.MoonXBT.com/ws/v1/kline</p>
+<p><strong>WebSocket Path</strong>: wss://v2.api.moolecloud.com/ws/endpoint</p>
 
 <aside class="notice">
 The WebSocket server will check the idle connections every 60 seconds. If the WebSocket server does not receive any request frame from the connection within a 1 minute period, the connection will be disconnected. Unsolicited request frames are not allowed.
 </aside>
+<h2 id='spotskline-meta-2'>spotsKline:meta</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
 
-<p><strong>Reqeust Parameters</strong>：</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
-</span><span class="p">{</span><span class="w">
-
-  </span><span class="nl">"kType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusd"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"size"</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-
-</span></code></pre></div>
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+"id": 3,
+"method": "spotsKline:meta",
+"jsonrpc": "2.0",
+"params": {
+}
+}
+</code></pre></div>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field</th>
 <th>Description</th>
-<th>Mandatory</th>
 <th>Data Type</th>
-<th>Value Range</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>kType</td>
-<td>Data range</td>
-<td>true</td>
-<td>integer</td>
-<td>1: 1 day, 2: 1 min, 3: 5 mins, 4: 15 mins, 5: 1 hour, 7: 4 hours</td>
+<td>Id</td>
+<td>Request id</td>
+<td>Number</td>
 </tr>
 <tr>
-<td>size</td>
-<td>Fetch size</td>
-<td>true</td>
-<td>integer</td>
-<td>1-200</td>
+<td>Method</td>
+<td>request func</td>
+<td>String</td>
 </tr>
 <tr>
-<td>symbol</td>
-<td>Trading symbol (wildcard inacceptable)</td>
-<td>true</td>
-<td>string</td>
-<td>btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd</td>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
 </tr>
 </tbody></table>
 
-<p><strong>Response Content</strong>:</p>
-
-<aside class="notice">
-If you connect to the WebSocket successfully at the 1st time, it will return the response message `PONG`.
-</aside>
+<p><strong>HTTP Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PONG"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-14 11:07:46"</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"spotsSymbols"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"supportMarginTrade"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"hidden"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"displayOrder"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"derivative"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"baseMinimumIncrement"</span><span class="p">:</span><span class="mf">0.00001</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quoteScale"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderBookAccuracy"</span><span class="p">:</span><span class="s2">"0,0.1,0.01"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"alwaysChargeQuote"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"baseScale"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"zone"</span><span class="p">:</span><span class="s2">"MAIN"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quoteMinimumIncrement"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"baseMaximumQuantity"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"baseMinimumQuantity"</span><span class="p">:</span><span class="mf">0.00001</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">100105</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"endTime"</span><span class="p">:</span><span class="mi">4083840000000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"openTime"</span><span class="p">:</span><span class="mi">1648818928000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"baseName"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quoteName"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"spotsCurrencies"</span><span class="p">:[</span><span class="w">
+            </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"USDT"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"currencies"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"hidden"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"depositOpenTime"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"BNB"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"displayOrder"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"derivative"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">115</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"iconUrl"</span><span class="p">:</span><span class="s2">"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"withdrawOpenTime"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"displayScale"</span><span class="p">:</span><span class="mi">8</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"hidden"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"depositOpenTime"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"displayOrder"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"derivative"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">105</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"iconUrl"</span><span class="p">:</span><span class="s2">"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"withdrawOpenTime"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"displayScale"</span><span class="p">:</span><span class="mi">8</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<aside class="notice">
-After that, you can receive the actual K-line data as below:
-</aside>
+</span></code></pre></div><h2 id='spotskline-spotslist-2'>spotsKline:spotsList</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">9313.2881</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">9316.2478</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">9260.2442</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">9390.1536</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"vol"</span><span class="p">:</span><span class="w"> </span><span class="mf">4190.569625</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1589414400</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-14 11:07:46"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:spotsList"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -1475,29 +1467,80 @@ After that, you can receive the actual K-line data as below:
 </tr>
 </thead><tbody>
 <tr>
-<td>code</td>
-<td>Return code</td>
-<td>integer</td>
+<td>Id</td>
+<td>Request id</td>
+<td>Number</td>
 </tr>
 <tr>
-<td>data</td>
-<td>Return data (if avaliable, check below <code>Kline Entity</code> )</td>
+<td>Method</td>
+<td>request func</td>
+<td>String</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"volume"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"symbolId"</span><span class="p">:</span><span class="mi">100105</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"changes"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"volume"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"symbolId"</span><span class="p">:</span><span class="mi">101105</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"ETH_USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"changes"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
 <td>array</td>
 </tr>
 <tr>
-<td>message</td>
-<td>Return message</td>
-<td>string</td>
+<td>id</td>
+<td>The result id</td>
+<td>number</td>
 </tr>
 <tr>
-<td>time</td>
-<td>Return timestamp</td>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
 <td>string</td>
 </tr>
 </tbody></table>
+<h2 id='spotskline-ticker-2'>spotsKline:ticker</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
 
-<p><strong>Kline Entity</strong></p>
-
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "id":3,
+    "method":"spotsKline:ticker",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"ETH_USDT"
+    }
+}
+</code></pre></div>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -1506,42 +1549,514 @@ After that, you can receive the actual K-line data as below:
 </tr>
 </thead><tbody>
 <tr>
-<td>close</td>
-<td>Close price</td>
-<td>number</td>
+<td>Id</td>
+<td>Request id</td>
+<td>Number</td>
 </tr>
 <tr>
-<td>high</td>
-<td>High price</td>
-<td>number</td>
+<td>Method</td>
+<td>request func</td>
+<td>String</td>
 </tr>
 <tr>
-<td>low</td>
-<td>Low price</td>
-<td>number</td>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
 </tr>
 <tr>
-<td>open</td>
-<td>Open price</td>
-<td>number</td>
-</tr>
-<tr>
-<td>time</td>
-<td>Market Timestamp</td>
-<td>long</td>
-</tr>
-<tr>
-<td>vol</td>
-<td>Volume</td>
-<td>number</td>
+<td>symbol</td>
+<td>The request symbol</td>
+<td>String</td>
 </tr>
 </tbody></table>
-<h1 id='trading-endpoints'>Trading Endpoints</h1><h2 id='position-history'>Position History</h2>
+
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"ETH_USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+            </span><span class="mi">1653557820000</span><span class="p">,</span><span class="w">
+            </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"TICKER"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sequenceId"</span><span class="p">:</span><span class="s2">"729912"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ts"</span><span class="p">:</span><span class="s2">"1652090424479"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>array</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h2 id='spotskline-allticker-2'>spotsKline:allTicker</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "id":3,
+    "method":"spotsKline:allTicker",
+    "jsonrpc":"2.0",
+    "params":{
+
+    }
+}
+</code></pre></div>
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+                </span><span class="mi">1653557820000</span><span class="p">,</span><span class="w">
+                </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mi">0</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"TICKER"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sequenceId"</span><span class="p">:</span><span class="s2">"920557"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ts"</span><span class="p">:</span><span class="s2">"1652163323227"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>array</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h2 id='spotskline-orderbook-2'>spotsKline:orderBook</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "id":3,
+    "method":"spotsKline:orderBook",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT"
+    }
+}
+</code></pre></div>
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"price"</span><span class="p">:</span><span class="mf">40207.67</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sellOrders"</span><span class="p">:[</span><span class="w">
+
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"buyOrders"</span><span class="p">:[</span><span class="w">
+
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"sequenceId"</span><span class="p">:</span><span class="s2">"157"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>Struct</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h2 id='spotskline-bars-2'>spotsKline:bars</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "id":3,
+    "method":"spotsKline:bars",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT",
+        "type":"MIN15",
+        "start":0,
+        "end":0,
+        "limit":10
+    }
+}
+</code></pre></div>
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1651191300000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39779.99</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39938.76</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39728.83</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39758.81</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.20588</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1651192200000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39728.25</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39797.81</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39671.75</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39707.41</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.17639</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1651193100000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39691.75</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39871.4</span><span class="p">,</span><span class="w">
+            </span><span class="mf">38459.84</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39837.81</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.18259</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1651194000000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39829.73</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39900.58</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39779.45</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39871.43</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.17355</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1651194900000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39841.26</span><span class="p">,</span><span class="w">
+            </span><span class="mf">44091.62</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39773.36</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39885.68</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.13083</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1652089500000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36476.46</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36476.46</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36476.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36476.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.00002</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1652091300000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36667.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36667.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36667.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36667.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.00002</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1652096700000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39999.99</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39999.99</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39999.99</span><span class="p">,</span><span class="w">
+            </span><span class="mf">39999.99</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.01</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1652151600000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36667.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36667.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36667.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">36667.42</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.00001</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1652163300000</span><span class="p">,</span><span class="w">
+            </span><span class="mi">40000</span><span class="p">,</span><span class="w">
+            </span><span class="mi">40000</span><span class="p">,</span><span class="w">
+            </span><span class="mi">40000</span><span class="p">,</span><span class="w">
+            </span><span class="mi">40000</span><span class="p">,</span><span class="w">
+            </span><span class="mf">0.0005</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h2 id='spotskline-ticks-2'>spotsKline:ticks</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "id":3,
+    "method":"spotsKline:ticks",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT",
+        "limit":1,
+        "sequenceId":0
+    }
+}
+</code></pre></div>
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+                </span><span class="mi">1651195258029</span><span class="p">,</span><span class="w">
+                </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="mf">39885.68</span><span class="p">,</span><span class="w">
+                </span><span class="mf">0.00032</span><span class="p">,</span><span class="w">
+                </span><span class="mi">0</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"sequenceId"</span><span class="p">:</span><span class="mi">3169352</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h2 id='spotskline-orderchanges-2'>spotsKline:orderChanges</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "id":3,
+    "method":"spotsKline:orderChanges",
+    "jsonrpc":"2.0",
+    "params":{
+        "account":"10009092",
+        "symbol":"BTC_USDT",
+        "updateAt":1653537731930
+    }
+}
+</code></pre></div>
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h2 id='spotskline-ordermatches-2'>spotsKline:orderMatches</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "id":3,
+    "method":"spotsKline:orderMatches",
+    "jsonrpc":"2.0",
+    "params":{
+        "account":"10009092",
+        "symbol":"BTC_USDT",
+        "updateAt":1653537731930
+    }
+}
+</code></pre></div>
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h2 id='spotskline-ping-2'>spotsKline:ping</h2>
+<p><strong>HTTP Request</strong>: <code>POST /ws/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+    "id":3,
+    "method":"spotsKline:ping",
+    "jsonrpc":"2.0",
+    "params":{
+        "account":"10009092",
+        "ts":1653537731930
+    }
+}
+</code></pre></div>
+<p><strong>HTTP Response Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"gap"</span><span class="p">:</span><span class="mi">293585010</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"PONG"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ts"</span><span class="p">:</span><span class="mi">1653831316940</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>Struct</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h1 id='liquid-contract-endpoint'>Liquid Contract Endpoint</h1><h2 id='position-history'>Position History</h2>
 <p>API Key Permission：Read</p>
 
 <p>This endpoint returns a list of historical orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: POST /api/cfd</p>
+<p><strong>HTTP Request</strong>: POST /api/endpoint</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd:historyList"</span><span class="p">,</span><span class="w">
@@ -1596,7 +2111,7 @@ After that, you can receive the actual K-line data as below:
 <td>Currency Name</td>
 <td>false</td>
 <td>string</td>
-<td>BSbtcusd, BSeosusd, BSltcusd, BStrxusd, BSadausd, BSxrpusd, BSethusd, BSetcusd, BSbchusd</td>
+<td>btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd</td>
 </tr>
 <tr>
 <td>begin</td>
@@ -1616,53 +2131,96 @@ After that, you can receive the actual K-line data as below:
 
 <p><strong>Response Content</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-14 11:58:06"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd14628655274ae98b5e86741e1c1558"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cusSuperior"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-22 18:50:44"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">8662.642</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">8662.642</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.025</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-22 18:50:44"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"simulatedTrading"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"holdPosition"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8241670ea9d64ec7916a2f2535943711"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extraData"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="mf">152.025</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"bamoney"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6075</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.58</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"currencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BSbtcusd"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"nightCount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cusAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13810000011"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"countryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">31788.49230451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"holding"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653997696203</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"pendingTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iOS"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"profitRate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"holdingTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.173157</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"normal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"simuOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"simulated"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"passNightFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">112.5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.359344</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"commissionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"superior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moonxbt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nextDeductingOverNightFeeTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1654074600000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contract_usdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">31597.76135151</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recycleExperienceGold"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">31788.49230451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settleCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mf">32848.10871451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10023780"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"661b4b14d28641fcbb060ad4db266f23"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extraData"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">31792.56705565</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"holding"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653997685192</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"pendingTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"normal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mi">1E+1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"simulated"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"passNightFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.314538</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mi">2E+1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"commissionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"superior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moonxbt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nextDeductingOverNightFeeTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1654074600000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contract_usdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">30361.90153865</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recycleExperienceGold"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">31792.56705565</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settleCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mf">39740.70881865</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10023780"</span><span class="w">
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-31 19:55:28"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -1698,13 +2256,19 @@ After that, you can receive the actual K-line data as below:
 
 <p>This endpoint returns a list of holding orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: POST /api/cfd</p>
+<p><strong>HTTP Request</strong>: POST /api/endpoint</p>
 
 <p><strong>HTTP Request</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd:holdingList"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SignatureVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JE1yKgEE1lJ/k08bpGUIZfC3lB4xDLcxHQWypdMoASQ="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SignatureMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HmacSHA256"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AccessKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93e357f4-d826-4ba0-951b-694457d73cb7"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-27T10:20:50"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"tradeVO"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1712,11 +2276,9 @@ After that, you can receive the actual K-line data as below:
             </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nl">"currencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nl">"begin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-20 18:28:41"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-20 18:28:41"</span><span class="w">
-
+            </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-20 18:28:41"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p><strong>Reqeust Parameters</strong>：</p>
@@ -1756,7 +2318,7 @@ After that, you can receive the actual K-line data as below:
 <td>Currency Name</td>
 <td>false</td>
 <td>string</td>
-<td>BSbtcusd, BSeosusd, BSltcusd, BStrxusd, BSadausd, BSxrpusd, BSethusd, BSetcusd, BSbchusd</td>
+<td>btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd</td>
 </tr>
 <tr>
 <td>begin</td>
@@ -1776,53 +2338,96 @@ After that, you can receive the actual K-line data as below:
 
 <p><strong>Response Content</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-14 11:58:06"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd14628655274ae98b5e86741e1c1558"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cusSuperior"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-22 18:50:44"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">8662.642</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">8662.642</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.025</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8241670ea9d64ec7916a2f2535943711"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extraData"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-22 18:50:44"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"simulatedTrading"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"holdPosition"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="mf">152.025</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"bamoney"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6075</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.58</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"currencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BSbtcusd"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"nightCount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cusAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13810000011"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"countryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">31788.49230451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"holding"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653997696203</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"pendingTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iOS"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"profitRate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"holdingTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13810000011"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.173157</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"normal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"simuOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"simulated"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"passNightFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">112.5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.359344</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"commissionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"superior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moonxbt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nextDeductingOverNightFeeTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1654074600000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contract_usdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">31597.76135151</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recycleExperienceGold"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">31788.49230451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settleCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mf">32848.10871451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10023780"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"661b4b14d28641fcbb060ad4db266f23"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extraData"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">31792.56705565</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"holding"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653997685192</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"pendingTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"normal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mi">1E+1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"simulated"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"passNightFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.314538</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mi">2E+1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"commissionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"superior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moonxbt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nextDeductingOverNightFeeTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1654074600000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contract_usdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">30361.90153865</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recycleExperienceGold"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">31792.56705565</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settleCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mf">39740.70881865</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10023780"</span><span class="w">
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-31 19:55:28"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -1863,8 +2468,14 @@ After that, you can receive the actual K-line data as below:
 <p><strong>HTTP Request Body</strong>: </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd:apendingList"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd:pendingList"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SignatureVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JE1yKgEE1lJ/k08bpGUIZfC3lB4xDLcxHQWypdMoASQ="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SignatureMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HmacSHA256"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AccessKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93e357f4-d826-4ba0-951b-694457d73cb7"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-27T10:20:50"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"tradeVO"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1873,7 +2484,6 @@ After that, you can receive the actual K-line data as below:
             </span><span class="nl">"currencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nl">"begin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-20 18:28:41"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-20 18:28:41"</span><span class="w">
-
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1915,7 +2525,7 @@ After that, you can receive the actual K-line data as below:
 <td>Currency Name</td>
 <td>false</td>
 <td>string</td>
-<td>BSbtcusd, BSeosusd, BSltcusd, BStrxusd, BSadausd, BSxrpusd, BSethusd, BSetcusd, BSbchusd</td>
+<td>btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd</td>
 </tr>
 <tr>
 <td>begin</td>
@@ -1935,53 +2545,96 @@ After that, you can receive the actual K-line data as below:
 
 <p><strong>Response Content</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-14 11:58:06"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd14628655274ae98b5e86741e1c1558"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cid"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cusSuperior"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-22 18:50:44"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">8662.642</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">8662.642</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.025</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8241670ea9d64ec7916a2f2535943711"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extraData"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-22 18:50:44"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"simulatedTrading"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"sign"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"holdPosition"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="mf">152.025</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"bamoney"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6075</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.58</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"currencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BSbtcusd"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"nightCount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cusAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13810000011"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"countryName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"pendingTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-22 18:50:44"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iOS"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"profitRate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"holdingTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13810000011"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.173157</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">31788.49230451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"holding"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653997696203</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"pendingTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"normal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"simuOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"simulated"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"passNightFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">112.5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.359344</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"commissionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"superior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moonxbt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nextDeductingOverNightFeeTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1654074600000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contract_usdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">31597.76135151</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recycleExperienceGold"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">31788.49230451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settleCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mf">32848.10871451</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10023780"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"661b4b14d28641fcbb060ad4db266f23"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"appendCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extraData"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settlement"</span><span class="p">:</span><span class="w"> </span><span class="mf">31792.56705565</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"holding"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653997685192</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"pendingTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deviceType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"normal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5E+2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"charge"</span><span class="p">:</span><span class="w"> </span><span class="mi">1E+1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"simulated"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"passNightFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"positions"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.314538</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"lever"</span><span class="p">:</span><span class="w"> </span><span class="mi">2E+1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"commissionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"superior"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moonxbt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"money"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nextDeductingOverNightFeeTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1654074600000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"walletName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contract_usdt"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">30361.90153865</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"recycleExperienceGold"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"overtime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"strikePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">31792.56705565</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"settleCharge"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"targetProfit"</span><span class="p">:</span><span class="w"> </span><span class="mf">39740.70881865</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10023780"</span><span class="w">
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-31 19:55:28"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -2021,199 +2674,194 @@ After that, you can receive the actual K-line data as below:
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Order Id</td>
+<td>orderType</td>
+<td>0:ordinary order, 1: following order 2: followed order</td>
 <td>integer</td>
 </tr>
 <tr>
 <td>code</td>
-<td>Order Code</td>
-<td>string</td>
+<td>Order id</td>
+<td>String</td>
 </tr>
 <tr>
-<td>cid</td>
-<td>Customer Id</td>
+<td>appendCharge</td>
+<td>Fee to append</td>
 <td>integer</td>
 </tr>
 <tr>
-<td>cusSuperior</td>
-<td>Customer Supervisor</td>
+<td>extraData</td>
+<td>Order extra data</td>
 <td>integer</td>
 </tr>
 <tr>
-<td>direction</td>
-<td>Order Type</td>
+<td>walletType</td>
+<td>Wallet type: 0:BTC,1: USDT, 2:ETH, 3:Gold</td>
 <td>integer</td>
-</tr>
-<tr>
-<td>amount</td>
-<td>Trading Amount</td>
-<td>number</td>
-</tr>
-<tr>
-<td>orderTime</td>
-<td>Order Time -  Format <code>yyyy-MM-dd HH:mm:ss</code></td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>strikePrice</td>
-<td>Strike Price</td>
-<td>number</td>
-</tr>
-<tr>
-<td>settlement</td>
-<td>Settle Price</td>
-<td>number</td>
-</tr>
-<tr>
-<td>charge</td>
-<td>Service Charge</td>
-<td>number</td>
-</tr>
-<tr>
-<td>profit</td>
-<td>Profit</td>
-<td>number</td>
 </tr>
 <tr>
 <td>orderStatus</td>
-<td>Order Status - 0: pending, 1: finished</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>overtime</td>
-<td>Order Finish Time -  Format <code>yyyy-MM-dd HH:mm:ss</code></td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>state</td>
-<td>Account Status - 0: pending, 1: forced liquidation, 2: non-overnight charge, 3: manual liquidation, 4: overnight charge due</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>stopLoss</td>
-<td>Stop-loss</td>
+<td>1:finish 0:doing 2manually cancel  3.system cancel</td>
 <td>number</td>
 </tr>
 <tr>
-<td>simulatedTrading</td>
-<td>Flag of Simulated Trading - 0: no, 1: yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>sign</td>
-<td>Flag of Overnight Charge - 0: no, 1: yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>holdPosition</td>
-<td>Hold Position</td>
-<td>string</td>
-</tr>
-<tr>
-<td>symbol</td>
-<td>Symbol</td>
-<td>string</td>
+<td>memo</td>
+<td>Less than 64kb `</td>
+<td>String</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Flag of Overnight - 0: no, 1: yes</td>
+<td>ECFDOrderType</td>
 <td>integer</td>
 </tr>
 <tr>
-<td>targetProfit</td>
-<td>Target Profit</td>
-<td>number</td>
+<td>point</td>
+<td>Number point</td>
+<td>String</td>
 </tr>
 <tr>
-<td>money</td>
-<td>Purchase Money</td>
-<td>number</td>
+<td>settlement</td>
+<td>Settle price</td>
+<td>Float</td>
 </tr>
 <tr>
-<td>lever</td>
-<td>Lever</td>
-<td>number</td>
+<td>holding</td>
+<td>Judge the order whether is in position state</td>
+<td>Boolean</td>
 </tr>
 <tr>
-<td>bamoney</td>
-<td>Overnight Charge(per day)</td>
-<td>number</td>
+<td>orderTime</td>
+<td>Create order time</td>
+<td>datetime</td>
 </tr>
 <tr>
 <td>interest</td>
-<td>Overnight Charge(total)</td>
-<td>number</td>
+<td>The total swap fee, to pass the midnight</td>
+<td>BigDecimal</td>
 </tr>
 <tr>
-<td>currencyName</td>
-<td>Currency Name</td>
-<td>string</td>
+<td>currency</td>
+<td>Token name: btc,eth</td>
+<td>String</td>
 </tr>
 <tr>
-<td>nightCount</td>
-<td>Days of Overnight</td>
-<td>number</td>
+<td>profit</td>
+<td>the order profit</td>
+<td>BigDecimal</td>
 </tr>
 <tr>
-<td>cusAccount</td>
-<td>Customer Account</td>
-<td>number</td>
-</tr>
-<tr>
-<td>countryCode</td>
-<td>Country Code</td>
-<td>string</td>
-</tr>
-<tr>
-<td>countryName</td>
-<td>Country Name</td>
-<td>string</td>
+<td>direction</td>
+<td>0: Buy 1:Sell</td>
+<td>integer</td>
 </tr>
 <tr>
 <td>pendingTime</td>
-<td>Pending Time -  Format <code>yyyy-MM-dd HH:mm:ss</code></td>
+<td>Create pending order time</td>
 <td>datetime</td>
 </tr>
 <tr>
 <td>deviceType</td>
-<td>Device Type - Range: iOS, Android, Web</td>
-<td>string</td>
-</tr>
-<tr>
-<td>profitRate</td>
-<td>Profit Rate</td>
-<td>number</td>
-</tr>
-<tr>
-<td>holdingTime</td>
-<td>Holding Time</td>
-<td>long</td>
-</tr>
-<tr>
-<td>appendCharge</td>
-<td>Append Charge</td>
-<td>number</td>
-</tr>
-<tr>
-<td>positions</td>
-<td>Positions</td>
-<td>number</td>
-</tr>
-<tr>
-<td>currentPrice</td>
-<td>Current Price</td>
-<td>number</td>
+<td>iOS\</td>
+<td>Android\</td>
 </tr>
 <tr>
 <td>normal</td>
-<td>Order Category - true: normal, false: pending</td>
-<td>boolean</td>
+<td>true: ordinary order, false: pending order</td>
+<td>string</td>
 </tr>
 <tr>
-<td>simuOrder</td>
-<td>Simulated Order - true: yes, false: no</td>
-<td>boolean</td>
+<td>amount</td>
+<td>The amount to cost to buy other token</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>charge</td>
+<td>Trading fee</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>simulated</td>
+<td>0:not simulated, 1:simulated</td>
+<td>number</td>
+</tr>
+<tr>
+<td>passNightFee</td>
+<td>The swap fee, to pass this midnight (per day)</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>currentPrice</td>
+<td>Current price</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>positions</td>
+<td>The position for the repsent</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>lever</td>
+<td>level number: for example 100</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>commissionType</td>
+<td>0:not feedback the commission,1:feedback the commission by  Point</td>
+<td>number</td>
+</tr>
+<tr>
+<td>superior</td>
+<td>Superior account, the present linked to the superior account.</td>
+<td>String</td>
+</tr>
+<tr>
+<td>money</td>
+<td>the usdt amount to create order</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>nextDeductingOverNightFeeTime</td>
+<td>time to charge the night fee</td>
+<td>Datetime</td>
+</tr>
+<tr>
+<td>walletName</td>
+<td>BTC, USDT, ETH, Gold</td>
+<td>String</td>
+</tr>
+<tr>
+<td>stopLoss</td>
+<td>Stop loss</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>recycleExperienceGold</td>
+<td>Recycle the experience money</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>overtime</td>
+<td>The order closing time</td>
+<td>Datetime</td>
+</tr>
+<tr>
+<td>strikePrice</td>
+<td>Strike price</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>settleCharge</td>
+<td>The charge fee to close the order</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>targetProfit</td>
+<td>The taken profit</td>
+<td>BigDecimal</td>
+</tr>
+<tr>
+<td>account</td>
+<td>Registered account</td>
+<td>String</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
