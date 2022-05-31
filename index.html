@@ -442,7 +442,7 @@
 <p>A valid request consists of below parts:</p>
 
 <ul>
-<li>API Path: for example https://v2.api.test.moolecloud.com/api/endpoint</li>
+<li>API Path: for example https://v2.api.moolecloud.com/api/endpoint</li>
 <li>API Access Key: The &#39;Access Key&#39; in your API Key</li>
 <li>Signature Method: The Hash method that is used to sign, it uses HmacSHA256</li>
 <li>Signature Version: The version for the signature protocol, it uses 1</li>
@@ -458,7 +458,7 @@
 
 <p>This is a full URL to query one order:</p>
 
-<p><code>https://v2.api.test.moolecloud.com/api/endpoint?</code></p>
+<p><code>https://v2.api.moolecloud.com/api/endpoint?</code></p>
 
 <p><code>AccessKey=73915b6e-e41d-43ff-ae18-0c29df541b43</code></p>
 
@@ -485,7 +485,31 @@
 }
 }
 </code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Id</td>
+<td>Request id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>request func</td>
+<td>String</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p>HTTP Response Body**:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"spotsSymbols"</span><span class="p">:[</span><span class="w">
@@ -556,6 +580,30 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Id</td>
+<td>Request id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>request func</td>
+<td>String</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
 <p><strong>HTTP Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
@@ -614,6 +662,35 @@
     }
 }
 </code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Id</td>
+<td>Request id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>request func</td>
+<td>String</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>The request symbol</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
 <p><strong>HTTP Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
@@ -670,6 +747,30 @@
     }
 }
 </code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Id</td>
+<td>Request id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>request func</td>
+<td>String</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
 <p><strong>HTTP Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
