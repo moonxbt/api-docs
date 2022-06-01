@@ -443,7 +443,7 @@
 <h1 id='general-info'>General Info</h1><h2 id='general-api-information'>General API Information</h2>
 <ul>
 <li>Some endpoints will require an API Key. </li>
-<li>The base endpoint is: <code>https://www.moonxbt.com</code></li>
+<li>The base endpoint is: https://v2.api.moonxbt.com``</li>
 <li>All endpoints return either a JSON object or array.</li>
 <li>Data is returned in ascending order. Oldest first, newest last.</li>
 <li>All time and timestamp related fields are in milliseconds.</li>
@@ -470,7 +470,7 @@
 <p>A valid request consists of below parts:</p>
 
 <ul>
-<li>API Path: for example https://v2.api.moolecloud.com/api/endpoint</li>
+<li>API Path: for example https://v2.api.moonxbt.com</li>
 <li>API Access Key: The &#39;Access Key&#39; in your API Key</li>
 <li>Signature Method: The Hash method that is used to sign, it uses HmacSHA256</li>
 <li>Signature Version: The version for the signature protocol, it uses 1</li>
@@ -485,7 +485,7 @@
 
 <p>This is a full URL to query one order:</p>
 
-<p><code>https://v2.api.moolecloud.com/api/endpoint?</code></p>
+<p><code>https://v2.api.moonxbt.com/api/endpoint?</code></p>
 
 <p><code>AccessKey=73915b6e-e41d-43ff-ae18-0c29df541b43</code></p>
 
@@ -1192,7 +1192,7 @@
 <h1 id='k-line-liquid-contract-endpoints'>K-Line Liquid Contract  Endpoints</h1><h2 id='cfdkline-history'>cfdKline:history</h2>
 <p>This endpoint returns a list of K-lines history data for all public users.</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/kline</code></p>
+<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -2463,7 +2463,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 <p>This endpoint returns a list of pending orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: <code>Post /api/cfd</code></p>
+<p><strong>HTTP Request</strong>: <code>Post /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>: </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
