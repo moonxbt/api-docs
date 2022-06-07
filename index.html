@@ -471,6 +471,14 @@
                           </li>
                       </ul>
                   </li>
+                  <li>
+                    <a href="#liquid-contract-2" class="toc-h2 toc-link" data-title="Liquid Contract">Liquid Contract</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#k-line-websocket-streams" class="toc-h3 toc-link" data-title="K-Line WebSocket streams">K-Line WebSocket streams</a>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
           </li>
           <li>
@@ -554,6 +562,8 @@
 
 <p>The signature info can be get by Query</p>
 <h2 id='spots'>Spots</h2><h3 id='k-line-spots-endpoint'>K-line Spots Endpoint</h3><h4 id='meta'>Meta</h4>
+<p>Get detailed market trading info about the trading symbol</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
@@ -650,6 +660,8 @@
     </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h4 id='spotslist'>SpotsList</h4>
+<p>Get spots trading pair info about price, volume, symbol name.</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
@@ -731,6 +743,8 @@
 </tr>
 </tbody></table>
 <h4 id='ticker'>Ticker</h4>
+<p>Get kline info around recent 24h on the fixed symbol</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
@@ -816,7 +830,13 @@
 <td>string</td>
 </tr>
 </tbody></table>
+
+<p>About data: </p>
+
+<p>[timestamp, open, high, low, close, amount, change]</p>
 <h4 id='allticker'>AllTicker</h4>
+<p>The summary of the K-line info, and the frequency is less than 10op/s</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
@@ -875,6 +895,8 @@
 </tr>
 </tbody></table>
 <h4 id='orderbook'>OrderBook</h4>
+<p>Get the order book</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
@@ -927,6 +949,8 @@
 </tr>
 </tbody></table>
 <h4 id='bars'>Bars</h4>
+<p>Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
@@ -943,6 +967,25 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>name of the symbol</td>
+<td>String</td>
+</tr>
+<tr>
+<td>type</td>
+<td><code>MIN</code>、<code>MIN5</code>、<code>MIN15</code>、<code>MIN30</code>、<code>HOUR</code>、<code>HOUR4</code>、<code>DAY</code>、<code>WEEK</code>、<code>MONTH</code></td>
+<td>Enum</td>
+</tr>
+</tbody></table>
+
 <p><strong>HTTP Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1015,10 +1058,55 @@
 <td>string</td>
 </tr>
 </tbody></table>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>Timestamp of start</td>
+<td>long</td>
+</tr>
+<tr>
+<td>End</td>
+<td>Timestamp of end</td>
+<td>long</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>The bar amount</td>
+<td>long</td>
+</tr>
+</tbody></table>
 <h4 id='ticks'>Ticks</h4>
+<p>Get the recent ticks info</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Symbol</td>
+<td>The symbol name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>The amount of ticks</td>
+<td>Limit</td>
+</tr>
+</tbody></table>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:ticks"</span><span class="p">,</span><span class="w">
@@ -1162,6 +1250,8 @@
 </tr>
 </tbody></table>
 <h4 id='ping'>Ping</h4>
+<p>Send ping to check  the service whether available</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p><strong>HTTP Request Body</strong>:</p>
@@ -1434,6 +1524,8 @@
 </tr>
 </tbody></table>
 <h4 id='open-symbol'>Open Symbol</h4>
+<p>Get the trade order by symbol</p>
+
 <p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
 
 <p>Get the tradable symbols</p>
@@ -2709,6 +2801,8 @@
 The WebSocket server will check the idle connections every 60 seconds. If the WebSocket server does not receive any request frame from the connection within a 1 minute period, the connection will be disconnected. Unsolicited request frames are not allowed.
 </aside>
 <h2 id='spots-2'>Spots</h2><h3 id='k-line-spots-endpoint-2'>K-line Spots Endpoint</h3><h4 id='meta-2'>Meta</h4>
+<p>Get detailed market trading info about the trading symbol</p>
+
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -2803,6 +2897,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h4 id='spotslist-2'>SpotsList</h4>
+<p>Get spots trading pair info about price, volume, symbol name.</p>
+
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -2882,6 +2978,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 <h4 id='ticker-2'>Ticker</h4>
+<p>Get kline info around recent 24h on the fixed symbol</p>
+
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -2966,6 +3064,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 <h4 id='allticker-2'>AllTicker</h4>
+<p>The summary of the K-line info, and the frequency is less than 10op/s</p>
+
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -3023,6 +3123,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 <h4 id='orderbook-2'>OrderBook</h4>
+<p>Get the order book</p>
+
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -3073,6 +3175,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 <h4 id='bars-2'>Bars</h4>
+<p>Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD</p>
+
 <p><strong>HTTP Request Body</strong>:<strong>HTTP Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -3158,6 +3262,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 <h4 id='ticks-2'>Ticks</h4>
+<p>Get the recent ticks info</p>
+
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -3302,6 +3408,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 <h4 id='ping-2'>Ping</h4>
+<p>Send ping to check  the service whether available</p>
+
 <p><strong>HTTP Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -3347,7 +3455,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <td>String</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
+<h2 id='liquid-contract-2'>Liquid Contract</h2><h3 id='k-line-websocket-streams'>K-Line WebSocket streams</h3><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
