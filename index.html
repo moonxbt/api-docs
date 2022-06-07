@@ -476,6 +476,11 @@
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#k-line-websocket-streams" class="toc-h3 toc-link" data-title="K-Line WebSocket streams">K-Line WebSocket streams</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#history-2" class="toc-h4 toc-link" data-title="History">History</a>
+                                  </li>
+                              </ul>
                           </li>
                       </ul>
                   </li>
@@ -3455,7 +3460,161 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <td>String</td>
 </tr>
 </tbody></table>
-<h2 id='liquid-contract-2'>Liquid Contract</h2><h3 id='k-line-websocket-streams'>K-Line WebSocket streams</h3><h1 id='errors'>Errors</h1>
+<h2 id='liquid-contract-2'>Liquid Contract</h2><h3 id='k-line-websocket-streams'>K-Line WebSocket streams</h3><h4 id='history-2'>History</h4>
+<p>This endpoint returns a list of K-lines history data for all public users.</p>
+
+<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+
+<p><strong>HTTP Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfdKline:history"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">  
+    </span><span class="nl">"params"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"kType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Reqeust Parameters</strong>：</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory</th>
+<th>Data Type</th>
+<th>Value Range</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>kType</td>
+<td>Data range</td>
+<td>true</td>
+<td>integer</td>
+<td>1: 1 day, 2: 1 min, 3: 5 mins, 4: 15 mins, 5: 1 hour, 7: 4 hours</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Fetch size</td>
+<td>true</td>
+<td>integer</td>
+<td>1-200</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>Trading symbol (wildcard inacceptable)</td>
+<td>true</td>
+<td>string</td>
+<td>btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response Content</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.84740664</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">16307.12321434</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">31861.83</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">31435.82941177</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1653955200</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">31728.01882353</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">31734.24235294</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-31 19:05:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>Return code</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Return data (if avaliable, check below <code>Kline Entity</code> )</td>
+<td>array</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Return message</td>
+<td>string</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Return timestamp</td>
+<td>string</td>
+</tr>
+<tr>
+<td>tid</td>
+<td>tracer id usd for open tracing</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Kline Entity</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>volume</td>
+<td>Volume</td>
+<td>caculated by base token, for instance USD</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Volume</td>
+<td>caculated by quote token, for instance BTC</td>
+</tr>
+<tr>
+<td>close</td>
+<td>Close price</td>
+<td>number</td>
+</tr>
+<tr>
+<td>high</td>
+<td>High price</td>
+<td>number</td>
+</tr>
+<tr>
+<td>low</td>
+<td>Low price</td>
+<td>number</td>
+</tr>
+<tr>
+<td>open</td>
+<td>Open price</td>
+<td>number</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Market Timestamp</td>
+<td>long</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
