@@ -572,9 +572,9 @@
 <h2 id='spots'>Spots</h2><h3 id='k-line-spots-endpoint'>K-line Spots Endpoint</h3><h4 id='meta'>Meta</h4>
 <p>Get detailed market trading info about the trading symbol</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:meta"</span><span class="p">,</span><span class="w">
@@ -608,7 +608,7 @@
 </tr>
 </tbody></table>
 
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"spotsSymbols"</span><span class="p">:[</span><span class="w">
@@ -670,9 +670,9 @@
 </span></code></pre></div><h4 id='spotslist'>SpotsList</h4>
 <p>Get spots trading pair info about price, volume, symbol name.</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>HTTP Request</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:spotsList"</span><span class="p">,</span><span class="w">
@@ -705,7 +705,7 @@
 </tr>
 </tbody></table>
 
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>HTTP Response</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -753,9 +753,9 @@
 <h4 id='ticker'>Ticker</h4>
 <p>Get kline info around recent 24h on the fixed symbol</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:ticker"</span><span class="p">,</span><span class="w">
@@ -794,7 +794,7 @@
 </tr>
 </tbody></table>
 
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"ETH_USDT"</span><span class="p">,</span><span class="w">
@@ -845,9 +845,9 @@
 <h4 id='allticker'>AllTicker</h4>
 <p>The summary of the K-line info, and the frequency is less than 10op/s</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:allTicker"</span><span class="p">,</span><span class="w">
@@ -856,7 +856,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>HTTP Response</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -905,9 +905,9 @@
 <h4 id='orderbook'>OrderBook</h4>
 <p>Get the order book</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:bars"</span><span class="p">,</span><span class="w">
@@ -917,7 +917,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">40207.67</span><span class="p">,</span><span class="w">
@@ -955,9 +955,9 @@
 <h4 id='bars'>Bars</h4>
 <p>Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:bars"</span><span class="p">,</span><span class="w">
@@ -990,7 +990,7 @@
 </tr>
 </tbody></table>
 
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 
@@ -1089,9 +1089,9 @@
 <h4 id='ticks'>Ticks</h4>
 <p>Get the recent ticks info</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 
 <table><thead>
 <tr>
@@ -1122,7 +1122,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1164,9 +1164,9 @@
 </tr>
 </tbody></table>
 <h4 id='orderchanges'>OrderChanges</h4>
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:orderChanges"</span><span class="p">,</span><span class="w">
@@ -1177,7 +1177,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -1208,9 +1208,9 @@
 </tr>
 </tbody></table>
 <h4 id='ordermatches'>OrderMatches</h4>
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:orderMatches"</span><span class="p">,</span><span class="w">
@@ -1221,7 +1221,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -1254,9 +1254,9 @@
 <h4 id='ping'>Ping</h4>
 <p>Send ping to check  the service whether available</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:ping"</span><span class="p">,</span><span class="w">
@@ -1266,7 +1266,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"gap"</span><span class="p">:</span><span class="w"> </span><span class="mi">293585010</span><span class="p">,</span><span class="w">
@@ -1303,9 +1303,9 @@
 <h3 id='spots-trade-endpoint'>Spots Trade Endpoint</h3><h4 id='batch-open'>Batch Open</h4>
 <p>Batch to open orders</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spots:batch"</span><span class="p">,</span><span class="w">
@@ -1328,7 +1328,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1365,9 +1365,9 @@
 <h4 id='batch-cancel'>Batch Cancel</h4>
 <p>Batch to open orders</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Body</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spots:batchCancel"</span><span class="p">,</span><span class="w">
@@ -1380,7 +1380,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -1391,9 +1391,9 @@
 </span></code></pre></div><h4 id='open'>Open</h4>
 <p>Get the open state orders</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spots:open"</span><span class="p">,</span><span class="w">
@@ -1403,7 +1403,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1551,11 +1551,11 @@
 <h4 id='open-symbol'>Open Symbol</h4>
 <p>Get the trade order by symbol</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
 <p>Get the tradable symbols</p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spots:open"</span><span class="p">,</span><span class="w">
@@ -1566,7 +1566,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1714,9 +1714,9 @@
 <h4 id='account'>Account</h4>
 <p>Get account info</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spots:accounts"</span><span class="p">,</span><span class="w">
@@ -1726,7 +1726,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"BTC"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1818,9 +1818,9 @@
 </tr>
 </tbody></table>
 <h4 id='closed'>Closed</h4>
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spots:closed"</span><span class="p">,</span><span class="w">
@@ -1833,7 +1833,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -1897,9 +1897,9 @@
 <h4 id='getorder'>GetOrder</h4>
 <p>Get the order by order id</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spots:getOrder"</span><span class="p">,</span><span class="w">
@@ -1909,7 +1909,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
@@ -1966,9 +1966,9 @@
 <h2 id='liquid-contract'>Liquid Contract</h2><h3 id='k-line-liquid-contract-endpoint'>K-line Liquid Contract Endpoint</h3><h4 id='history'>History</h4>
 <p>This endpoint returns a list of K-lines history data for all public users.</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfdKline:history"</span><span class="p">,</span><span class="w">
@@ -2014,7 +2014,7 @@
 </tr>
 </tbody></table>
 
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2121,7 +2121,7 @@
 
 <p>This endpoint returns a list of historical orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: POST /api/endpoint</p>
+<p><strong>Request Path</strong>: POST /api/endpoint</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd:historyList"</span><span class="p">,</span><span class="w">
@@ -2194,7 +2194,7 @@
 </tr>
 </tbody></table>
 
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2292,9 +2292,9 @@
 
 <p>This endpoint returns a list of holding orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: POST /api/endpoint</p>
+<p><strong>Request Path</strong>: POST /api/endpoint</p>
 
-<p><strong>HTTP Request</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd:holdingList"</span><span class="p">,</span><span class="w">
@@ -2366,7 +2366,7 @@
 </tr>
 </tbody></table>
 
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -2464,9 +2464,9 @@
 
 <p>This endpoint returns a list of pending orders owned by this API user.</p>
 
-<p><strong>HTTP Request</strong>: <code>Post /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>Post /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>: </p>
+<p><strong>Request Body</strong>: </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfd:pendingList"</span><span class="p">,</span><span class="w">
@@ -2661,8 +2661,8 @@
 </tr>
 <tr>
 <td>walletType</td>
-<td>Wallet type: 0:BTC,1: USDT, 2:ETH, 3:Gold</td>
-<td>integer</td>
+<td>“contract_usdt”，“Gold”</td>
+<td>String</td>
 </tr>
 <tr>
 <td>orderStatus</td>
@@ -2687,7 +2687,7 @@
 <tr>
 <td>settlement</td>
 <td>Settle price</td>
-<td>Float</td>
+<td>BigDecimal</td>
 </tr>
 <tr>
 <td>holding</td>
@@ -2726,8 +2726,8 @@
 </tr>
 <tr>
 <td>deviceType</td>
-<td>iOS\</td>
-<td>Android\</td>
+<td>“iOS”,&quot;Android&quot;,&quot;Web&quot;</td>
+<td>string</td>
 </tr>
 <tr>
 <td>normal</td>
@@ -2791,7 +2791,7 @@
 </tr>
 <tr>
 <td>walletName</td>
-<td>BTC, USDT, ETH, Gold</td>
+<td>“USDT”</td>
 <td>String</td>
 </tr>
 <tr>
@@ -2845,7 +2845,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <h2 id='spots-2'>Spots</h2><h3 id='k-line-spots-endpoint-2'>K-line Spots Endpoint</h3><h4 id='meta-2'>Meta</h4>
 <p>Get detailed market trading info about the trading symbol</p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:meta"</span><span class="p">,</span><span class="w">
@@ -2879,7 +2879,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"spotsSymbols"</span><span class="p">:[</span><span class="w">
@@ -2941,7 +2941,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </span></code></pre></div><h4 id='spotslist-2'>SpotsList</h4>
 <p>Get spots trading pair info about price, volume, symbol name.</p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:spotsList"</span><span class="p">,</span><span class="w">
@@ -2974,7 +2974,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3022,7 +3022,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <h4 id='ticker-2'>Ticker</h4>
 <p>Get kline info around recent 24h on the fixed symbol</p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:ticker"</span><span class="p">,</span><span class="w">
@@ -3061,7 +3061,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"ETH_USDT"</span><span class="p">,</span><span class="w">
@@ -3108,7 +3108,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <h4 id='allticker-2'>AllTicker</h4>
 <p>The summary of the K-line info, and the frequency is less than 10op/s</p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:allTicker"</span><span class="p">,</span><span class="w">
@@ -3118,7 +3118,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3167,7 +3167,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <h4 id='orderbook-2'>OrderBook</h4>
 <p>Get the order book</p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:orderBook"</span><span class="p">,</span><span class="w">
@@ -3177,7 +3177,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"price"</span><span class="p">:</span><span class="mf">40207.67</span><span class="p">,</span><span class="w">
@@ -3219,7 +3219,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <h4 id='bars-2'>Bars</h4>
 <p>Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD</p>
 
-<p><strong>HTTP Request Body</strong>:<strong>HTTP Response Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:bars"</span><span class="p">,</span><span class="w">
@@ -3232,7 +3232,9 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
         </span><span class="nl">"limit"</span><span class="p">:</span><span class="mi">5</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span></code></pre></div>
+<p><strong>Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
 
         </span><span class="p">[</span><span class="w">
@@ -3306,7 +3308,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <h4 id='ticks-2'>Ticks</h4>
 <p>Get the recent ticks info</p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:ticks"</span><span class="p">,</span><span class="w">
@@ -3318,7 +3320,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3360,7 +3362,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 <h4 id='orderchanges-2'>OrderChanges</h4>
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:orderChanges"</span><span class="p">,</span><span class="w">
@@ -3371,7 +3373,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
 
@@ -3404,7 +3406,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 <h4 id='ordermatches-2'>OrderMatches</h4>
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:orderMatches"</span><span class="p">,</span><span class="w">
@@ -3415,7 +3417,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:[</span><span class="w">
 
@@ -3450,7 +3452,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <h4 id='ping-2'>Ping</h4>
 <p>Send ping to check  the service whether available</p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spotsKline:ping"</span><span class="p">,</span><span class="w">
@@ -3460,7 +3462,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>HTTP Response Body</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
         </span><span class="nl">"gap"</span><span class="p">:</span><span class="mi">293585010</span><span class="p">,</span><span class="w">
@@ -3497,9 +3499,9 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 <h2 id='liquid-contract-2'>Liquid Contract</h2><h3 id='k-line-websocket-streams'>K-Line WebSocket streams</h3><h4 id='history-2'>History</h4>
 <p>This endpoint returns a list of K-lines history data for all public users.</p>
 
-<p><strong>HTTP Request</strong>: <code>POST /api/endpoint</code></p>
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
 
-<p><strong>HTTP Request Body</strong>:</p>
+<p><strong>Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfdKline:history"</span><span class="p">,</span><span class="w">
@@ -3545,7 +3547,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 </tbody></table>
 
-<p><strong>Response Content</strong>:</p>
+<p><strong>Response Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
