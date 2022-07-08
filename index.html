@@ -375,9 +375,6 @@
                             <a href="#spots-trade-endpoint" class="toc-h3 toc-link" data-title="Spots Trade Endpoint">Spots Trade Endpoint</a>
                               <ul class="toc-list-h4">
                                   <li>
-                                    <a href="#batch-open" class="toc-h4 toc-link" data-title="Batch Open">Batch Open</a>
-                                  </li>
-                                  <li>
                                     <a href="#batch-cancel" class="toc-h4 toc-link" data-title="Batch Cancel">Batch Cancel</a>
                                   </li>
                                   <li>
@@ -1300,69 +1297,7 @@
 <td>String</td>
 </tr>
 </tbody></table>
-<h3 id='spots-trade-endpoint'>Spots Trade Endpoint</h3><h4 id='batch-open'>Batch Open</h4>
-<p>Batch to open orders</p>
-
-<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
-
-<p><strong>Request Body</strong>:</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spots:batch"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LONG"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIMIT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WEB"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"postOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">40000</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"fillOrKill"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"immediateOrCancel"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>Response Body</strong>:</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"failure"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>result</td>
-<td>Return result</td>
-<td>Struct</td>
-</tr>
-<tr>
-<td>id</td>
-<td>The result id</td>
-<td>Number</td>
-</tr>
-<tr>
-<td>jsonrpc</td>
-<td>The json-rpc  version</td>
-<td>String</td>
-</tr>
-</tbody></table>
-<h4 id='batch-cancel'>Batch Cancel</h4>
+<h3 id='spots-trade-endpoint'>Spots Trade Endpoint</h3><h4 id='batch-cancel'>Batch Cancel</h4>
 <p>Batch to cancel orders</p>
 
 <p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
@@ -2538,7 +2473,7 @@
 </tr>
 </tbody></table>
 
-<p><strong>Response Body</strong>:</p>
+<p><strong>Response Content</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
