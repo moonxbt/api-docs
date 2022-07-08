@@ -557,7 +557,7 @@
 
 <p><code>&amp;SignatureMethod=HmacSHA256</code></p>
 
-<p><code>&amp;SignatureVersion=10</code></p>
+<p><code>&amp;SignatureVersion=1</code></p>
 
 <p><code>&amp;Timestamp=2022-05-28T08:30:50</code></p>
 
@@ -979,12 +979,12 @@
 </tr>
 <tr>
 <td>Buy orders</td>
-<td>The buy order book: [ limitPirce: Amount]</td>
+<td>The buy order book: [ LimitPirce, Amount]</td>
 <td>Array</td>
 </tr>
 <tr>
 <td>Sell orders</td>
-<td>The buy order book:  [limitPirce: Amount]</td>
+<td>The buy order book:  [LimitPirce:, Amount]</td>
 <td>Array</td>
 </tr>
 </tbody></table>
@@ -3412,12 +3412,12 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 </tr>
 <tr>
 <td>Buy orders</td>
-<td>The buy order book:  limitPirce: Amount</td>
+<td>The buy order book: [ LimitPirce, Amount]</td>
 <td>Array</td>
 </tr>
 <tr>
-<td>jsonrpc</td>
-<td>The buy order book:  limitPirce: Amount</td>
+<td>Sell orders</td>
+<td>The buy order book:  [LimitPirce:, Amount]</td>
 <td>Array</td>
 </tr>
 </tbody></table>
