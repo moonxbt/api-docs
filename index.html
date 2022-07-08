@@ -375,10 +375,13 @@
                             <a href="#spots-trade-endpoint" class="toc-h3 toc-link" data-title="Spots Trade Endpoint">Spots Trade Endpoint</a>
                               <ul class="toc-list-h4">
                                   <li>
+                                    <a href="#createopenorder" class="toc-h4 toc-link" data-title="CreateOpenOrder">CreateOpenOrder</a>
+                                  </li>
+                                  <li>
                                     <a href="#batch-cancel" class="toc-h4 toc-link" data-title="Batch Cancel">Batch Cancel</a>
                                   </li>
                                   <li>
-                                    <a href="#open" class="toc-h4 toc-link" data-title="Open">Open</a>
+                                    <a href="#get-open-orders" class="toc-h4 toc-link" data-title="Get Open Orders">Get Open Orders</a>
                                   </li>
                                   <li>
                                     <a href="#open-symbol" class="toc-h4 toc-link" data-title="Open Symbol">Open Symbol</a>
@@ -1297,7 +1300,204 @@
 <td>String</td>
 </tr>
 </tbody></table>
-<h3 id='spots-trade-endpoint'>Spots Trade Endpoint</h3><h4 id='batch-cancel'>Batch Cancel</h4>
+<h3 id='spots-trade-endpoint'>Spots Trade Endpoint</h3><h4 id='createopenorder'>CreateOpenOrder</h4>
+<p>Open one order</p>
+
+<p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
+
+<p><strong>Request Body</strong>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"method"</span><span class="p">:</span><span class="s2">"spots:createOrder"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"params"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"orderBean"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"direction"</span><span class="p">:</span><span class="s2">"LONG"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"LIMIT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"source"</span><span class="p">:</span><span class="s2">"WEB"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"quantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"postOnly"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hidden"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="mi">22538</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fillOrKill"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"immediateOrCancel"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th style="text-align: left">Data Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td style="text-align: left">R</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Enum</td>
+<td style="text-align: left">Number</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>Enum</td>
+<td style="text-align: left">String</td>
+</tr>
+<tr>
+<td>price</td>
+<td>decimal</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>decimal</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td>fillOrKill</td>
+<td>decimal</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td>immediateOrCancel</td>
+<td>boolean</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td>postOnly</td>
+<td>boolean</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>boolean</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td>clientOrderId</td>
+<td>String</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>symbol</strong></td>
+<td><strong>string</strong></td>
+<td><strong>Required</strong> , exchage pair to trade, such as <code>BTC_USDT</code></td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td><strong>enum</strong></td>
+<td><strong>Required</strong> order type：limit order=&quot;LIMIT&quot;，market order=&quot;MARKET&quot;</td>
+</tr>
+<tr>
+<td><strong>direction</strong></td>
+<td><strong>enum</strong></td>
+<td><strong>Required</strong>  order direction：buy=&quot;LONG&quot;，sell=&quot;SHORT&quot;</td>
+</tr>
+<tr>
+<td><strong>price</strong></td>
+<td><strong>decimal</strong></td>
+<td><strong>Only for Limited Order</strong>  order price ，such as<code>7123.5</code></td>
+</tr>
+<tr>
+<td><strong>quantity</strong></td>
+<td><strong>decimal</strong></td>
+<td><strong>Required</strong> order amount ,such as<code>1.02</code></td>
+</tr>
+<tr>
+<td><strong>fillOrKill</strong></td>
+<td><strong>boolean</strong></td>
+<td><strong>Not required</strong>  whether to FOK. Order，such as<code>true</code></td>
+</tr>
+<tr>
+<td><strong>immediateOrCancel</strong></td>
+<td><strong>boolean</strong></td>
+<td><strong>Not required</strong> whether to IOC order，such as<code>true</code></td>
+</tr>
+<tr>
+<td><strong>postOnly</strong></td>
+<td><strong>boolean</strong></td>
+<td><strong>Required</strong>  whether negtively to trust orders，such as<code>true</code></td>
+</tr>
+<tr>
+<td><strong>hidden</strong></td>
+<td><strong>boolean</strong></td>
+<td><strong>Required</strong> whether to trust iceberg orders，such as <code>true</code>，the order fee for iceberg orders is of taker&#39;s fee</td>
+</tr>
+<tr>
+<td><strong>clientOrderId</strong></td>
+<td><strong>string</strong></td>
+<td><strong>Optional</strong> customerised OrderId，used to query,canel order, which is available within 24h</td>
+</tr>
+</tbody></table>
+
+<p>Response Body**:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"triggerOn"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"makerFeeRate"</span><span class="p">:</span><span class="mf">0.001</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"trailingDistance"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fee"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"clientOrderId"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"marginTrade"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"trailingBasePrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"LIMIT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fillPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"triggerDirection"</span><span class="p">:</span><span class="s2">"LONG"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"features"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="mi">1657246741388</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"trailing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unfilledQuantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"price"</span><span class="p">:</span><span class="mi">22538</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"takerFeeRate"</span><span class="p">:</span><span class="mf">0.001</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"223193832207"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"direction"</span><span class="p">:</span><span class="s2">"SHORT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="mi">1657246741388</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>Return result</td>
+<td>Struct</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The result id</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>jsonrpc</td>
+<td>The json-rpc  version</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h4 id='batch-cancel'>Batch Cancel</h4>
 <p>Batch to cancel orders</p>
 
 <p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
@@ -1323,7 +1523,7 @@
         </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='open'>Open</h4>
+</span></code></pre></div><h4 id='get-open-orders'>Get Open Orders</h4>
 <p>Get the open state orders</p>
 
 <p><strong>Request Path</strong>: <code>POST /api/endpoint</code></p>
