@@ -545,21 +545,12 @@
 
 <p><strong>Signature Method</strong></p>
 
-<p>The signature may be different if the request text is different, therefore the request should be normalized before signing. Below signing steps take the order query as an example:</p>
+<p>The signature may be different if the request text is different, therefore the request should be normalized and URL encoded before signing. Below we have an example to show how to organize them，currently the first line should be GET, and each line has to be splitted by &#39;\n&#39;:</p>
 
-<p>This is a full URL to query one order:</p>
-
-<p><code>https://v2api.moonxbt.com/api/endpoint?</code></p>
-
-<p><code>AccessKey=73915b6e-e41d-43ff-ae18-0c29df541b43</code></p>
-
-<p><code>&amp;Signature=fN5ViyRfXY%2FlheM5rGmChIIsvzRD93hXYiUO6BFG8AY%3D</code></p>
-
-<p><code>&amp;SignatureMethod=HmacSHA256</code></p>
-
-<p><code>&amp;SignatureVersion=1</code></p>
-
-<p><code>&amp;Timestamp=2022-05-28T08:30:50</code></p>
+<p>GET
+v2api.moonxbt.com
+/api/endpoint
+AccessKey=97fde68b-4ca9-4d45-ab09-86821e87080c&amp;SignatureMethod=HmacSHA256&amp;SignatureVersion=1&amp;Timestamp=2022-07-09T07%3A30%3A00</p>
 
 <p><strong>Http Request Body</strong>:</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spotsKline:meta"</span><span class="p">,</span><span class="w"> </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w"> </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
